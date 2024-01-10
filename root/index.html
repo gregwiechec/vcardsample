@@ -57,7 +57,7 @@
             z-index: 1;
             position: relative;
             padding-top: 20%;
-            padding-bottom: 8px;
+            padding-bottom: 32px;
             box-sizing: border-box;
         }
 
@@ -95,8 +95,8 @@
 
         .footer > a {
             display: flex;
-            height: 100px;
-            width: 100px;
+            height: 120px;
+            width: 120px;
             background-color: green;
             padding: 4px;
             border-radius: 4px;
@@ -118,20 +118,38 @@
             background-image: none;
             width: 100%;
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 32px;
             border-radius: 2px;
             padding: 8px 0;
 
-            height: 100px;
-            line-height: 80px;
+            height: 150px;
+            line-height: 120px;
             vertical-align: middle;
             font-size: 40px;
         }
 
         a.button.contact {
             background-color: #606060;
+            height: 100px;
+            line-height: 80px;
         }
     </style>
+
+    <script type="text/javascript">
+        function addContact() {
+            if(navigator.contacts){
+                var mycontacts = [];
+                navigator.contacts( ['emails.value', 'name', 'friends'],
+                    function(contacts) {
+                        for(i in contacts) {
+
+                            mycontacts.push(contacts[i]);
+
+                        }
+                    });
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="background"></div>
